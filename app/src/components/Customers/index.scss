@@ -1,0 +1,280 @@
+@import '../../app/style/mixins.scss';
+@import '../../app/style/vars.scss';
+.wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 350px;
+    padding: 20px;
+    margin-right: 20px; 
+
+    @include breakpoint($netbook-bp) {
+        margin-left: 310px;
+    }
+    @include breakpoint($tablet-bp) {
+        padding-left: 0px;
+        margin-left: 10px;
+        margin-right: 30px; 
+    }
+}
+.customers {
+    border-radius: 3%;
+    background-color: #fff;
+    width: 100%;
+    max-width: 968px;
+    padding: 20px; 
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+		@include breakpoint($mobile-bp) {
+			flex-direction: column;
+		}
+    }
+
+    &__title {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 33px;
+        letter-spacing: -0.01em;
+        margin: 30px 0 7px 0;
+
+        @include breakpoint($netbook-bp) {
+            font-size: 20px;
+        }
+    }
+
+    &__active-members {
+        color: #16C098;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: -0.01em;
+
+        @include breakpoint($netbook-bp) {
+            font-size: 13px;
+        }
+    }
+
+	&__item {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: #292D32;
+  
+    &__head {
+        color: #B5B7C0;
+        font-size: 14px;
+        letter-spacing: -0.01em; 
+        text-align: left;
+        position: relative;
+
+        @include breakpoint($netbook-bp) {
+            border: none;
+        }
+    }
+    &__row {
+        margin: 20px 0 20px 0;
+        position: relative;
+
+        @include breakpoint($netbook-bp) {
+            margin: 0;
+        }
+    }
+    &__body {
+        color: #292D32;
+        position: relative;
+        
+        @include breakpoint($netbook-bp) {
+            display: grid;
+        }
+    }
+    
+    &__cell {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: -0.01em;
+        text-align: left;
+        padding: 20px 0 20px 0;
+        margin: 20px 0 20px 0;
+        cursor: pointer;  
+        
+        @include breakpoint($netbook-bp) {
+            text-align: right;
+            padding: 0;
+            margin: 20px 0 20px 0;
+
+            ::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-right: 10px;
+              }
+            ::after {
+                content: attr(data-text);
+                float: right;
+              }
+        }
+    }
+
+    &__status p{
+        border-radius: 4px;
+        padding: 3px 0 3px 0;
+        text-align: center;  
+    }
+
+    &__status-active {
+        background-color: #16C09861;
+        border: 1px solid #00B087;
+        color: #008767;
+
+        @include breakpoint($netbook-bp) {
+            display: inline-block;
+            width: 100px;
+        }
+    }
+
+    &__status-inactive {
+        background-color: #FFC5C5;
+        border: 1px solid #DF0404;
+        color: #DF0404;
+
+        @include breakpoint($netbook-bp) {
+            display: inline-block;
+            width: 100px;
+        }
+    }
+    
+    &__border-full {
+        position: absolute;
+        bottom: 6px;
+        left: -22px;
+        right: -22px;
+        border-bottom: 1px solid #EEEEEE;
+
+        @include breakpoint($netbook-bp) {
+            display: none;
+        }
+
+    }
+    
+    &__border {
+        border-bottom: 1px solid #EEEEEE;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+
+        @include breakpoint($netbook-bp) {
+            border-bottom: 2px solid #EEEEEE;
+        }
+    }
+}
+
+.customers-footer {
+    margin: 32px 0 41px 0;
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+
+		@include breakpoint($mobile-bp) {
+			flex-direction: column;
+			align-items: center;
+	
+		}
+    }
+    &__data {
+        color: #B5B7C0;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+
+		@include breakpoint($mobile-bp) {
+			margin-bottom: 20px;
+	
+		}
+    }
+    &__pagination {
+        width:  271px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.pagination-item {
+    width: 25px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #404B52;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    border: 1px solid #EEEEEE
+}
+
+.item-active{
+    border: 1px solid #5932EA;
+    background-color: #5932EA;
+    color: #FFFFFF
+}
+
+@include breakpoint ($netbook-bp) {
+	
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr 
+	{
+		display: block;
+	}
+
+	thead {
+		border: none;
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+	}
+
+	thead tr {
+		text-align: left;
+	}
+
+	thead tr th {
+		display: none;
+	}
+	td {
+		text-align: right;
+		position: relative;
+	}
+	td::before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	td:last-child {
+		border-bottom: 0;
+	}
+
+	td::before {
+		color: #b5b7c0;
+	}
+	td::after {
+		float: right;  
+	}
+}
